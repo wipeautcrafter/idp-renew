@@ -30,6 +30,6 @@ for pod in pods:
     # try to register
     try:
         pod.register()
-        logger.log(f"✓ {pod} ➟ geregistreerd!")
+        logger.log(f"✓ {pod} ➟ aangemeld!")
     except:
         logger.log(f"x {pod} ➟ mislukt...")
