@@ -16,7 +16,7 @@ class Register:
         uri = self.uri(_uri)
 
         res = self.session.get(uri)
-        if(res.status_code != 200):
+        if res.status_code != 200:
             raise Exception("Incorrect status code.")
 
         pods = res.json()
@@ -46,7 +46,7 @@ class Pod:
 
         res = self.registrar.session.get(uri)
 
-        if(res.status_code != 200):
+        if res.status_code != 200:
             raise Exception("Incorrect status code.")
 
     def register(self):

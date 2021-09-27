@@ -25,7 +25,7 @@ class AuthServer:
         # get redirected to proper endpoint
         req = self.session.get(self.endpoint, allow_redirects=True)
         
-        if(req.status_code != 200):
+        if req.status_code != 200:
             raise Exception("Incorrect status code.")
         
         # save csrf and auth code
@@ -44,5 +44,8 @@ class AuthServer:
         # make authentication request
         req = self.session.post(self.auth_uri, data, allow_redirects=True)
         
-        if(req.status_code != 200):
+        if req.status_code != 200:
             raise Exception("Incorrect status code.")
+
+        if req.url == self.auth_uri:
+            raise Exception("Invalid username or password.")
