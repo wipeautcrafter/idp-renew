@@ -19,13 +19,13 @@ pods = register.pods()
 for pod in pods:
     # exceptions to registering
     if date.today() >= pod.date:
-        break
+        continue
 
     if not pod.available or pod.closed:
-        break
+        continue
 
     if pod.available == 0:
-        break
+        continue
 
     # try to register
     try:
